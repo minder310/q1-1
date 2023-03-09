@@ -32,7 +32,7 @@ class DB
     }
     public function all(...$arg)
     {
-        $sql = "select * form $this->table ";
+        $sql = "select * from $this->table ";
         if (isset($arg[0])) {
             if (is_array($arg[0])) {
                 $tmp = $this->ArToSq($arg[0]);
@@ -47,13 +47,14 @@ class DB
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
     public function find($id){
-        $sql = "select * form $this->table ";
+        $sql = "select * from `$this->table` ";
         if (is_array($id)) {
             $tmp = $this->ArToSq($id);
             $sql = $sql . " where " . join(" && ", $tmp);
         } else {
             $sql = $sql ." where `id` = '$id'";
         }
+        // dd($sql);
         return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
     public function del($id){
