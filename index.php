@@ -38,12 +38,12 @@ include "./api/total.php";
 				</div>
 			</div>
 			<?php
-			$do=(isset($_GET['do']))?$_GET['do']:"main";
+			$do=(isset($_GET['do']))?$_GET['do']:"home";
 			$file="./font/".$do.".php";
 			if(file_exists($file)){
 				include $file;
 			}else{
-				include "./font/main.php";
+				include "./font/home.php";
 			}
 			
 			?>

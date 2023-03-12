@@ -22,6 +22,8 @@ class DB
     {
         $this->table = $table;
         $this->pdo = new PDO($this->dns, "root", "");
+        $this->setStr($table);
+
     }
     private function ArToSq($ar)
     {
@@ -111,6 +113,70 @@ class DB
     public function avg($col,...$arg){return $this->math("avg",$col,...$arg);}
     public function min($col,...$arg){return $this->math("min",$col,...$arg);}
     public function max($col,...$arg){return $this->math("max",$col,...$arg);}
+    
+    // 這邊可以重整，並弄成自己的樣子，但先照老師的打。
+    public $table1; //資料表名稱
+    public $title;  //後臺功能名稱
+    public $button; //新增功能按鈕
+    public $header; //列表第一欄標題
+    public $append; //列表第二欄標題
+    public $upload; //更新圖片彈出視窗用
+
+    private function setStr($table){
+        switch($table){
+            case "title":
+                $this->title="網站標題管理";
+                $this->button="新增網站標題圖片";
+                $this->header="網站標題";
+                $this->append="替代文字";
+                $this->upload="網站標題圖片";
+                break;
+            case "ad":
+                $this->title="動態文字廣告管理";
+                $this->button="新增動態文字廣告";
+                $this->header="動態文字廣告";
+                break;
+            case "mvim":
+                $this->title="動畫圖片管理";
+                $this->button="新增動畫圖片";
+                $this->header="動畫圖片";
+                $this->upload="動畫圖片";
+                break;
+            case "image":
+                $this->title="校園映象資料管理";
+                $this->button="新增校園映象圖片";
+                $this->header="校園映象資料圖片";
+                $this->upload="校園映象圖片";
+                break;
+            case "total":
+                $this->title="進站總人數管理";
+                $this->button="";
+                $this->header="進站總人數";
+                break;
+            case "bottom":
+                $this->title="頁尾版權資料管理";
+                $this->button="";
+                $this->header="頁尾版權資料";
+                break;
+            case "news":
+                $this->title="最新消息資料管理";
+                $this->button="新增最新消息資料";
+                $this->header="最新消息資料內容";
+                break;
+            case "admin":
+                $this->title="管理者帳號管理";
+                $this->button="新增管理者帳號";
+                $this->header="帳號";
+                $this->append="密碼";
+                break;
+            case "menu":
+                $this->title="選單管理";
+                $this->button="新增主選單";
+                $this->header="主選單名稱";
+                $this->append="選單連結網址";
+                break;
+        }
+    }
 }
 $Bot=new DB('bottom');
 $Total=new DB('total');
@@ -121,4 +187,3 @@ $Mvim=new DB('mvim');
 $News=new DB('news');
 $Admin=new DB('admin');
 $Menu=new DB('menu');
-
