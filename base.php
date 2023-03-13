@@ -28,7 +28,7 @@ class DB
     private function ArToSq($ar)
     {
         foreach ($ar as $key => $val) {
-            $tmp[] = " `$key` = $val";
+            $tmp[] = " `$key` = '$val'";
         }
         return $tmp;
     }
@@ -56,7 +56,6 @@ class DB
         } else {
             $sql = $sql ." where `id` = '$id'";
         }
-        // dd($sql);
         return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
     public function del($id){
@@ -67,6 +66,7 @@ class DB
         } else {
             $sql = $sql ." where `id` = '$id'";
         }
+        dd($sql);
         return $this->pdo->exec($sql);
     }
     public function save($text){

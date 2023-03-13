@@ -24,7 +24,7 @@ include "./api/total.php";
 	</div>
 	<div id="main">
 		<a title="" href="./home_files/home.htm">
-			<div class="ti" style="background:url('./upload/<?=$Title->find(['sh'=>1])['img']?>'); background-size:cover;"></div><!--標題-->
+			<div class="ti" style="background:url('./upload/<?= $Title->find(['sh' => 1])['img'] ?>'); background-size:cover;"></div><!--標題-->
 		</a>
 		<div id="ms">
 			<div id="lf" style="float:left;">
@@ -34,18 +34,22 @@ include "./api/total.php";
 				</div>
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
 					<span class="t">進站總人數 :
-						<?=$Total->find(1)['total']?></span>
+						<?= $Total->find(1)['total'] ?></span>
 				</div>
 			</div>
 			<?php
-			$do=(isset($_GET['do']))?$_GET['do']:"home";
-			$file="./font/".$do.".php";
-			if(file_exists($file)){
-				include $file;
+			if (empty($_SESSION['login'])) {
+				$do = (isset($_GET['do'])) ? $_GET['do'] : "home";
+				$file = "./font/" . $do . ".php";
+				if (file_exists($file)) {
+					include $file;
+				} else {
+					include "./font/home.php";
+				}
 			}else{
-				include "./font/home.php";
+				to("./back.php");
 			}
-			
+
 			?>
 			<div id="alt" style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;"></div>
 			<script>
