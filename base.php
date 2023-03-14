@@ -15,15 +15,13 @@ function to($url)
 class DB
 {
     private $table;
-    private $dns = "mysql:host=localhost;charset=utf8;dbname=dbq1";
+    private $dns = "mysql:host=localhost;charset=utf8;dbname=db04";
     private $pdo;
 
     public function __construct($table)
     {
         $this->table = $table;
         $this->pdo = new PDO($this->dns, "root", "");
-        $this->setStr($table);
-
     }
     private function ArToSq($ar)
     {
