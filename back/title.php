@@ -1,5 +1,5 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
-    <p class="t cent botli"><?=$DB->title?></p>
+    <p class="t cent botli">網站標題管理</p>
     <form method="post" action="./api/title.php">
         <table width="100%">
             <tbody>

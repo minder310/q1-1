@@ -10,5 +10,6 @@
     <div>
         <input type="submit" value="新增">
         <input type="reset" value="重置">
+        <input type="hidden" name="table" value="Ad">
     </div>
 </form>
