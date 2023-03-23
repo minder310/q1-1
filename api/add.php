@@ -33,6 +33,7 @@ switch($table){
         if(isset($_POST['text'])){
             $data['text']=$_POST['text'];
         }
+        
         $data['sh']=($table=="Title")?0:1;
         // 要是$img有值，就將$data['img']=$img;
         if(!empty($img)){

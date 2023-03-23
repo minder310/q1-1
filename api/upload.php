@@ -2,7 +2,8 @@
 include "../base.php";
 
 // 將傳過來的id取出我要的資料。
-$row=$Title->find($_POST['id']);
+
+$row=${$_POST['table']}->find($_POST['id']);
 
 // 這邊是處理圖片區。
 // 要是圖片存在
