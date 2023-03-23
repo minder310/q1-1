@@ -1,3 +1,4 @@
+<!-- 更改刪除資料葉面。 -->
 <?php
 include "../base.php";
 // 需要翻譯全頁
@@ -16,8 +17,9 @@ foreach($_POST['id'] as $idx => $id){
         switch($table){
             // 如果是title
             case "Title":
-                // 就在
+                // 這裡寫得很聰明，用key值作為判定標準，並且塞入資料。
                 $row['text']=$_POST['text'][$idx];
+                // 如果isset(裡面有$_post['sh'])同時$_POST['sh']==$id)就輸出1不是就輸出0;
                 $row['sh']=(isset($_POST['sh']) && $_POST['sh']==$id)?1:0;
                 break;
             case "Admin":

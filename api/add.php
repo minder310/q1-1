@@ -18,7 +18,8 @@ if(!empty($_FILES['img']['tmp_name'])){
 switch($table){
     // 當$table是Admin時會執行以下動作。
     case "Admin":
-        // 
+        // Admin是宣告新增帳號密碼的網頁資料。
+        // 將$_POST['acc','pw']塞進$data[]陣列內。
         $data['acc']=$_POST['acc'];
         $data['pw']=$_POST['pw'];
         break;
@@ -33,6 +34,10 @@ switch($table){
             $data['text']=$_POST['text'];
         }
         $data['sh']=($table=="Title")?0:1;
+        // 要是$img有值，就將$data['img']=$img;
+        if(!empty($img)){
+            $data['img']=$img;
+        }
 }
 // 在$_post傳輸中，陣列名稱就是inpute裡的name名稱。
 $$table->save($data);

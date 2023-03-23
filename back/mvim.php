@@ -15,12 +15,14 @@
                 foreach($rows as $row){
                 ?>
                 <tr>
-                    <td><img src="./upload/<?=$row['img']?>" style="width:300px;height:30px"></td>
+                    <td><img src="./upload/<?=$row['img']?>" style="width:100px;height:100px"></td>
                     <td><input type="checkbox" name="sh[]" value="<?=$row['id']?>" <?= ($row['sh']==1)?"checked":""; ?>></td>
                     <td><input type="checkbox" name="del[]" value="<?=$row['id']?>" ></td>
                     <td>
                         <input type="button" onclick="op('#cover','#cvr','./modal/upload_mvim.php?id=<?=$row['id']?>')" value="更新動畫">
+                        <!-- 這句話是讓他知道所有的id這樣在後台才能夠修正所有id的資料，如果沒有這行，後台沒打勾的選項就不會有id值就無法變動。 -->
                         <input type="hidden" name="id[]" value="<?=$row['id']?>">
+                        <input type="hidden" name="table" value="Mvim">
                 </td>
                 </tr>
                 <?php
