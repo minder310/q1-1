@@ -9,7 +9,7 @@ $row=${$_POST['table']}->find($_POST['id']);
 // 要是圖片存在
 if(!empty($_FILES['img']['tmp_name'])){
     // 將圖片搬移到/upload/圖片名稱。
-    move_uploaded_file($_FILES['img']['tmp_name'],'../upload/'.$_FILES['img']['tmp_name']);
+    move_uploaded_file($_FILES['img']['tmp_name'],'../upload/'.$_FILES['img']['name']);
     // 更新圖片名稱資料。
     $row['img']=$_FILES['img']['name'];
     // 從新存回資料庫。
