@@ -3,6 +3,7 @@
 // include 是指將所指向的檔案直接寫進來的意思。
 include "../base.php";
 // 將post['table']宣告進一個$table裡面，並且用以判斷要取用哪個資料。
+dd($_POST);
 $table=$_POST['table'];
 $data=[];
 // empty是只要是不存在，!驚嘆號是相反，所以意思是要是存在的話執行以下動作。

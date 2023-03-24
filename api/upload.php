@@ -13,5 +13,5 @@ if(!empty($_FILES['img']['tmp_name'])){
     // 更新圖片名稱資料。
     $row['img']=$_FILES['img']['name'];
     // 從新存回資料庫。
-    $Title->save($row);
+    ${$_POST['table']}->save($row);
 }
